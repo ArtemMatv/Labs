@@ -8,6 +8,8 @@ namespace _3lab
 {
     class Program
     {
+        //14.	Перевірити істинність вислову: "Цифри даного тризначного числа утворюють зростаючу або спадаючу послідовність".
+        
         static private int[] Partitioning(int number)
         {
             int[] result = new int[3];

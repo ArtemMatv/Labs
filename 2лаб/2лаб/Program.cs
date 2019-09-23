@@ -10,6 +10,8 @@ namespace _2лаб
     {
         static void Main(string[] args)
         {
+            //Знайти добуток (((-1)^k)*k))/(2*(k^3)+k+7)
+            
             double sum = 1.0;
 
             for (int k = 0; k < 200; k++)
