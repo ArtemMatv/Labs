@@ -32,27 +32,33 @@ namespace _4lab
             }
             else
             {
-
-                List<int> mins = new List<int>();
-
+                int maxFromMins = int.MinValue;
+               
                 for (int i = 0; i < arr.Length; i++)
                 {
                     if (i == 0)
                         if (arr[0] < arr[1])
-                            mins.Add(arr[0]);
+                            if (maxFromMins < arr[i])
+                                maxFromMins = arr[i];
+                            else
+                                continue;
                         else
                             continue;
                     else if (i == arr.Length - 1)
                         if (arr[i] < arr[i - 1])
-                            mins.Add(arr[i]);
+                            if (maxFromMins < arr[i])
+                                maxFromMins = arr[i];
+                            else
+                                continue;
                         else
                             continue;
                     else
                         if (arr[i - 1] > arr[i] && arr[i] < arr[i + 1])
-                        mins.Add(arr[i]);
+                        if (maxFromMins < arr[i])
+                            maxFromMins = arr[i];
+                        else
+                            continue;
                 }
-
-                int maxFromMins = mins.Max();
 
                 Console.WriteLine($"The biggest element from local mins: {maxFromMins}");
             }

@@ -1,30 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _3lab
 {
     class Program
     {
         //14.	Перевірити істинність вислову: "Цифри даного тризначного числа утворюють зростаючу або спадаючу послідовність".
-        
-        static private int[] Partitioning(int number)
-        {
-            int[] result = new int[3];
 
-            result[2] = number % 10;
-            result[1] = (number % 100 - result[2]) / 10;
-            result[0] = (number - result[1] * 10 - result[0]) / 100;
-                
-            return result;
+        static private bool Partitioning(int number)
+        {
+            string temp = number.ToString();
+
+            int[] result = new int[temp.Length];
+
+            for (int i = 0; i < result.Length; i++)
+                result[i] = int.Parse(temp[temp.Length - 1 - i].ToString());
+
+            //Convert.ToInt32(char) повертає символ ASCII
+            //int.Parse(char) не існує
+            //Тому використано int.Parse(char.ToString())
+
+            int j = 0;
+            while (j < result.Length - 1 && result[j] < result[j + 1])
+                j++;
+
+            if (j == result.Length - 1)
+                return true;
+
+            j = 0;
+            while (j < result.Length - 1 && result[j] > result[j + 1])
+                j++;
+
+            if (j == result.Length - 1)
+                return true;
+
+            return false;
         }
 
         static void Main()
         {
             int number;
-            do {
+            do
+            {
                 Console.WriteLine("Enter three digit number: ");
 
                 int.TryParse(Console.ReadLine(), out number);
@@ -33,13 +49,11 @@ namespace _3lab
                     Console.WriteLine("You've entered wrong value!");
 
             } while (number > 999 || number < 100);
-
-            int[] comparing = Partitioning(number);
-
-            if (((comparing[0] > comparing[1]) && (comparing[1] > comparing[2]))||((comparing[0] < comparing[1]) && (comparing[1] < comparing[2])))
+            
+            if (Partitioning(number))
                 Console.WriteLine("Makes");
             else
-                Console.WriteLine("Does not make");
+               Console.WriteLine("Does not make");
 
             Console.ReadKey();
         }
