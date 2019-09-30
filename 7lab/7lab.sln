@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResizingImages", "ResizingImages\ResizingImages.csproj", "{63A24ADB-A8E0-4379-8D9B-6E1428B32BBE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7lab", "7lab\7lab.csproj", "{944544A5-AB9A-40F6-9ED4-A930486FF837}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{63A24ADB-A8E0-4379-8D9B-6E1428B32BBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{63A24ADB-A8E0-4379-8D9B-6E1428B32BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{63A24ADB-A8E0-4379-8D9B-6E1428B32BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{63A24ADB-A8E0-4379-8D9B-6E1428B32BBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{944544A5-AB9A-40F6-9ED4-A930486FF837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{944544A5-AB9A-40F6-9ED4-A930486FF837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{944544A5-AB9A-40F6-9ED4-A930486FF837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{944544A5-AB9A-40F6-9ED4-A930486FF837}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3AF93E3D-E0DF-438D-94B4-7B9091A9C704}
+		SolutionGuid = {4F6715B9-C120-4828-BC6A-0DF86F384401}
 	EndGlobalSection
 EndGlobal
