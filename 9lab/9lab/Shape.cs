@@ -2,16 +2,6 @@
 
 namespace _9lab
 {
-    public enum Names
-    {
-        Vasya = 1,
-        Olia,
-        Lena,
-        Yura,
-        Nastya,
-        Artem
-    }
-
     public enum ShapeType
     {
         Square,

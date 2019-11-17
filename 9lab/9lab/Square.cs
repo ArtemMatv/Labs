@@ -6,14 +6,13 @@ namespace _9lab
     {
         private double SideLength { get; set; }
 
-        public Square(double sideLength)
+        public Square(string name)
         {
-            SideLength = sideLength;
+            SideLength = new Random().Next(0, 15);
 
-            Color = (ConsoleColor)(new System.Random().Next(0, 15));
+            Color = (ConsoleColor)(new Random().Next(0, 15));
 
-            Names rn = (Names)(new System.Random().Next(1, 6));
-            Name = rn.ToString();
+            Name = name;
         }
 
         public Square(string name, double sideLength)
@@ -21,7 +20,7 @@ namespace _9lab
             Name = name;
             SideLength = sideLength;
 
-            Color = (ConsoleColor)(new System.Random().Next(0, 15));
+            Color = (ConsoleColor)(new Random().Next(0, 15));
         }
 
         public Square(ConsoleColor color, string name, double sideLength)

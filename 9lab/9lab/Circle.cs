@@ -6,14 +6,13 @@ namespace _9lab
     {
         private double Radius { get; set; }
 
-        public Circle(double radius)
+        public Circle(string name)
         {
-            Radius = radius;
+            Radius = new Random().Next(0, 15);
 
-            Color = (ConsoleColor)(new System.Random().Next(0, 15));
+            Color = (ConsoleColor)(new Random().Next(0, 15));
 
-            Names rn = (Names)(new System.Random().Next(1, 6));
-            Name = rn.ToString();
+            Name = name;
         }
 
         public Circle(string name, double radius)
@@ -21,7 +20,7 @@ namespace _9lab
             Name = name;
             Radius = radius;
 
-            Color = (ConsoleColor)(new System.Random().Next(0, 15));
+            Color = (ConsoleColor)(new Random().Next(0, 15));
         }
 
         public Circle(ConsoleColor color, string name, double radius)

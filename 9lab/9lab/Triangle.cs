@@ -6,14 +6,13 @@ namespace _9lab
     {
         private double SideLength { get; }
 
-        public Triangle(double sideLength)
+        public Triangle(string name)
         {
-            SideLength = sideLength;
+            SideLength = new Random().Next(0, 15);
 
             Color = (ConsoleColor)(new System.Random().Next(0, 15));
 
-            Names rn = (Names)(new System.Random().Next(1, 6));
-            Name = rn.ToString();
+            Name = name;
         }
 
         public Triangle(string name, double sideLength)
