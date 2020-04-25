@@ -44,7 +44,10 @@ namespace FilesTask
 
         private void Subfolders(object sender, EventArgs e)
         {
+            (sender as Button).Visible = false;
             string path = ConfigurationManager.AppSettings["subfolder"] + "\\Folder_";
+
+            Label exLabel = null;
             for (int i = 0; i < 100; i++)
             {
                 try
@@ -54,7 +57,7 @@ namespace FilesTask
                 }
                 catch (PathTooLongException)
                 {
-                    Label exLabel = new Label()
+                    exLabel = new Label()
                     {
                         Text = (i + 1) + " folders created,\n" +
                         "imposible create more (260 chars limit)\n" +
@@ -70,10 +73,29 @@ namespace FilesTask
                     break;
                 }
             }
+
+            Button deleteButton = new Button()
+            {
+                Text = "Delete folders",
+                Size = new Size(150, 25),
+                Location = new Point(170, 10)
+            };
+
+            deleteButton.Click += (s, ev) =>
+            {
+                Directory.Delete(
+                    ConfigurationManager.AppSettings["subfolder"]
+                                                .Replace("Subfolder", ""),
+                    true);
+                exLabel.Text = "Deleted";
+                (s as Button).Visible = false;
+            };
+            Controls.Add(deleteButton);
         }
 
         private void OneByOne(object sender, EventArgs e)
         {
+            (sender as Button).Visible = false;
             string path = ConfigurationManager.AppSettings["oneByOne"] + "\\Folder_";
             for (int i = 0; i < 100; i++)
             {
@@ -88,7 +110,26 @@ namespace FilesTask
                 Location = new Point(10, 50),
                 Size = new Size(150, 100)
             };
+
+            Button deleteButton = new Button()
+            {
+                Text = "Delete folders",
+                Size = new Size(150, 25),
+                Location = new Point(10, 10)
+            };
+
+            deleteButton.Click += (s, ev) =>
+            {
+                for (int i = 99; i >= 0; i--)
+                {
+                    Directory.Delete(path + i);
+                }
+                successLabel.Text = "Deleted";
+                (s as Button).Visible = false;
+            };
+
             Controls.Add(successLabel);
+            Controls.Add(deleteButton);
         }
 
         private void FileSearch()
@@ -144,7 +185,7 @@ namespace FilesTask
 
                 searchResult = new TableLayoutPanel()
                 {
-                    Size = new Size(700, result.Length * 25 +50),
+                    Size = new Size(700, result.Length * 25 + 50),
                     Location = new Point(10, 180),
                     Visible = true,
                     ColumnCount = 1,
