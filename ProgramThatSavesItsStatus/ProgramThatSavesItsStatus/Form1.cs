@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProgramThatSavesItsStatus.Inerfaces;
+using ProgramThatSavesItsStatus.Savers;
 
 namespace ProgramThatSavesItsStatus
 {
@@ -42,7 +44,7 @@ namespace ProgramThatSavesItsStatus
                 SaveType type = (SaveType)i;
                 button.Click += (s, e) =>
                 {
-                    ResultForm resForm = new ResultForm(type);
+                    ResultForm resForm = new ResultForm((Saver)type);
                     resForm.Show();
                     this.Hide();
                     resForm.FormClosed += (sen, ev) => this.Show();

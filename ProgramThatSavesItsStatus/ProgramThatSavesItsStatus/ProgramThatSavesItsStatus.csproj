@@ -62,6 +62,7 @@
     <Compile Include="ResultForm.Designer.cs">
       <DependentUpon>ResultForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Savers\Saver.cs" />
     <Compile Include="Savers\SaverBinary.cs" />
     <Compile Include="Savers\SaverRegister.cs" />
     <Compile Include="Savers\SaverTxt.cs" />

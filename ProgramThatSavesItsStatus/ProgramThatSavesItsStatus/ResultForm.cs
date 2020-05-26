@@ -13,7 +13,7 @@ namespace ProgramThatSavesItsStatus
         private CheckBox secondBox = null;
         private readonly ISaver saver;
 
-        public ResultForm(SaveType type)
+        public ResultForm(ISaver type)
         {
             InitializeComponent();
 
@@ -22,23 +22,7 @@ namespace ProgramThatSavesItsStatus
 
             CreateControls();
 
-            switch (type)
-            {
-                case SaveType.XML:
-                    saver = new SaverXml();
-                    break;
-                case SaveType.TXT:
-                    saver = new SaverTxt();
-                    break;
-                case SaveType.Binary:
-                    saver = new SaverBinary();
-                    break;
-                case SaveType.Register:
-                    saver = new SaverRegister();
-                    break;
-                default:
-                    break;
-            }
+            saver = type;
 
             GetSavedData();
         }

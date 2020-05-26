@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace ProgramThatSavesItsStatus.Savers
 {
-    public class SaverXml : ISaver
+    public class SaverXml : Saver
     {
         private readonly string _path;
 
@@ -13,7 +13,7 @@ namespace ProgramThatSavesItsStatus.Savers
         {
             _path = ConfigurationManager.AppSettings["fileXml"];
         }
-        public (bool, bool, string, Size, Point) Get()
+        public override (bool, bool, string, Size, Point) Get()
         {
             XmlDocument xDoc = new XmlDocument();
             xDoc.Load(_path);
@@ -38,7 +38,7 @@ namespace ProgramThatSavesItsStatus.Savers
             return result;
         }
 
-        public void Save(bool first, bool second, string text, Size size, Point location)
+        public override void Save(bool first, bool second, string text, Size size, Point location)
         {
             XmlDocument xDoc = new XmlDocument();
             xDoc.Load(_path);

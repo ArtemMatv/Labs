@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace ProgramThatSavesItsStatus.Savers
 {
-    public class SaverRegister : ISaver
+    public class SaverRegister : Saver
     {
-        public (bool, bool, string, Size, Point) Get()
+        public override (bool, bool, string, Size, Point) Get()
         {
             (bool, bool, string, Size, Point) result = (false, false, "", new Size(400, 300), new Point(200, 200));
             if (Registry.CurrentUser.GetSubKeyNames().Contains("homeworkContent"))
@@ -28,7 +28,7 @@ namespace ProgramThatSavesItsStatus.Savers
             return result;
         }
 
-        public void Save(bool first, bool second, string text, Size size, Point location)
+        public override void Save(bool first, bool second, string text, Size size, Point location)
         {
             if (Registry.CurrentUser.GetSubKeyNames().Contains("homeworkContent"))
                 Registry.CurrentUser.DeleteSubKey("homeworkContent");

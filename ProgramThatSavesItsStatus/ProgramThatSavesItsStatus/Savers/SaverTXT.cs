@@ -5,14 +5,14 @@ using System.IO;
 
 namespace ProgramThatSavesItsStatus.Savers
 {
-    public class SaverTxt : ISaver
+    public class SaverTxt : Saver
     {
         private readonly string _path;
         public SaverTxt()
         {
             _path = ConfigurationManager.AppSettings["fileTXT"];
         }
-        public (bool, bool, string, Size, Point) Get()
+        public override (bool, bool, string, Size, Point) Get()
         {
             (bool, bool, string, Size, Point) result = (false, false, "", new Size(0, 0), new Point(0,0));
             using (var sr = new StreamReader(_path))
@@ -35,7 +35,7 @@ namespace ProgramThatSavesItsStatus.Savers
             return result;
         }
 
-        public void Save(bool first, bool second, string text, Size size, Point location)
+        public override void Save(bool first, bool second, string text, Size size, Point location)
         {
             using (var sw = new StreamWriter(_path))
             {

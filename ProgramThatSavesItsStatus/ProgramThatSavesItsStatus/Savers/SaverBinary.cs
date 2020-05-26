@@ -1,18 +1,17 @@
-﻿using ProgramThatSavesItsStatus.Inerfaces;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Drawing;
 using System.IO;
 
 namespace ProgramThatSavesItsStatus.Savers
 {
-    public class SaverBinary : ISaver
+    public class SaverBinary : Saver
     {
         private readonly string _path;
         public SaverBinary()
         {
             _path = ConfigurationManager.AppSettings["fileBinary"];
         }
-        public (bool, bool, string, Size, Point) Get()
+        public override (bool, bool, string, Size, Point) Get()
         {
             (bool, bool, string, Size, Point) result = (false, false, "", new Size(0, 0), new Point(0, 0));
             using (BinaryReader binaryReader = new BinaryReader(
@@ -32,7 +31,7 @@ namespace ProgramThatSavesItsStatus.Savers
             return result;
         }
 
-        public void Save(bool first, bool second, string text, Size size, Point location)
+        public override void Save(bool first, bool second, string text, Size size, Point location)
         {
             using (BinaryWriter binaryWriter = new BinaryWriter(
                 File.Open(_path, FileMode.OpenOrCreate)))
